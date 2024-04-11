@@ -1,0 +1,2 @@
+# ASR2
+Yo, como cliente, dado que el sistema opera normalmente y enfrenta variaciones en la carga de trabajo de un ambiente no sobrecargado  que cuenta  con 100 usuarios concurrentes, quiero que mi información sea validada y se me otorgue un score de confiabilidad de manera eficiente para continuar con el proceso. Esto debe asegurarse incluso aumentando 6 veces el número de usuarios concurrentes sin que el porcentaje de error aumente de 5%
