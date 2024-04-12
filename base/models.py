@@ -11,4 +11,10 @@ from django.db import models
     associated_user = models.ForeignKey('users.User', on_delete=models.CASCADE)
     document_type = models.CharField(max_length=50, choices=document_types) """
 
+class DocumentScore(models.Model):
+
+    document_id = models.BigAutoField(primary_key=True)
+    score = models.FloatField()
+    document_text = models.TextField(blank=True, null=True)
+
 

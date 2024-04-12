@@ -3,6 +3,7 @@ import os
 from django.http import HttpResponse, JsonResponse
 from google.cloud import vision
 import re
+from base.models import DocumentScore
 
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'credentials.json'
 
@@ -20,9 +21,13 @@ def process_document(file, document_type, user):
         ]
     }
     res = client.annotate_image(request=request)
-    response_text = res.text_annotations[0].description
-    print(response_text)
-    print(calcular_confianza_score(response_text))
+    response_text = res.text_annotations[0].description if res.text_annotations else ""
+    score = calcular_confianza_score(response_text)
+    document_score = DocumentScore( 
+        score=score,
+        document_text=response_text  
+    )
+    document_score.save()
 
 
 def calcular_confianza_score(texto):
