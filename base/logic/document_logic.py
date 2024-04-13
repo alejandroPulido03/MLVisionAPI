@@ -5,9 +5,6 @@ from google.cloud import vision
 import re
 from base.models import DocumentScore
 
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'credentials.json'
-
-
 def process_document(file, document_type, user):
     client = vision.ImageAnnotatorClient()
     request = {
